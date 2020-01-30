@@ -1,0 +1,77 @@
+#!/bin/bash
+#  mp3に変換するスクリプト
+
+#IFS環境変数をバックアップ
+IFS_BACKUP=$IFS
+#IFSを改行区切りにする
+IFS=$'\n'
+
+# mp4ファイル数を数える
+count1=$(ls|grep mp4|wc -l)
+for i in `seq 1 $count1`
+do
+    name=$(ls|grep mp4|head -$i | tail -1)
+    echo $name
+
+    #名前から.mp4を抜き取る
+    string=$(echo $name|sed "s/.mp4//")
+    echo $string
+
+    #画像を抜き取る
+    ffmpeg -i "$name" -ss 18 -vframes 1 -f image2 "$string.jpg"
+
+    #mp3に変換
+    ffmpeg -i "$name" -f mp3 "$string.mp3"
+
+    #mp3に画像をセット
+    eyeD3 --add-image="$string.jpg":FRONT_COVER "$string.mp3"
+
+    #mp4を削除
+    rm $name
+    #jpgを削除
+    rm "$string.jpg"
+done
+
+
+count2=$(ls|grep flv|wc -l)
+for n in `seq 1 $count2`
+do
+    name2=$(ls|grep flv|head -$n | tail -1)
+    echo name2:$name2
+
+    #名前から.flvを抜き取る
+    string2=$(echo $name2|sed "s/.flv//")
+    echo string2:$string2
+    
+    #画像を抜き取る
+    ffmpeg -i "$name2" -ss 20 -vframes 1 -f image2 "$string2.jpg"
+
+    #mp3に変換
+    ffmpeg -i "$name2" -f mp3 "$string2.mp3"
+
+    #mp3に画像をセット
+    eyeD3 --add-image="$string2.jpg":FRONT_COVER "$string2.mp3"
+
+    #flvを削除
+    rm $name2
+    #jpgを削除
+    rm "$string2.jpg"
+done
+
+
+
+count3=$(ls|grep wav|wc -l)
+for n in `seq 1 $count3`
+do
+    name3=$(ls|grep wav|head -$n | tail -1)
+    echo name3:$name3
+
+    string3=$(echo $name3|sed "s/.wav//")
+    echo string3:$string3
+
+    ffmpeg -i "$name3" -f mp3 "$string3.mp3"
+    rm $name3
+done
+
+#IFSを戻す
+IFS=$IFS_BACKUP

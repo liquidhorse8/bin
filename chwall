@@ -1,0 +1,9 @@
+#!/bin/bash
+# 壁紙を自動変更する
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
+dir="${HOME}/documents/wallpapers/$1/"
+wallpaper=`find "${dir}" -type f | shuf -n1`
+echo $wallpaper
+
+#gsettings set org.mate.background picture-filename "${wallpaper}"
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s "${wallpaper}"

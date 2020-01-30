@@ -1,0 +1,7 @@
+#!/bin/bash
+# $1:画像名で壁紙変更
+
+path="/documents/壁紙"
+uri="$(pwd)$path/$1"
+echo $uri
+gsettings set org.mate.background picture-filename $uri

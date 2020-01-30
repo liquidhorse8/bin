@@ -1,0 +1,23 @@
+#!/bin/bash
+# ジャンルを同期する
+# (アーティスト名とアルバム名を書き換え、タイトルをファイル名と同期する)訂正
+
+#IFS環境変数をバックアップ
+IFS_BACKUP=$IFS
+#IFSを改行区切りにする
+IFS=$'\n'
+
+count1=$(ls|grep mp3|wc -l)
+
+for i in `seq 1 $count1`
+do
+    name=$(ls|grep mp3|head -$i|tail -1)
+    #eyeD3 --to-v2.4 --set-encoding=utf8 -a $1 -A $1 -t "$name" $name
+    #eyeD3 --to-v2.4 --set-encoding=utf8 -a $name -A $name -G $1 -t "$name" $name
+    eyeD3 --to-v2.4 -a $name -A $name -G $1 -t "$name" $name
+    echo "$name"
+done
+
+#IFSを元に戻す
+IFS=$IFS_BACKUP
+echo $str

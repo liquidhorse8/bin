@@ -1,0 +1,13 @@
+#!/bin/bash
+# conkyがオンならオフに、オフならオンにするスイッチ
+
+#sleep 10
+count=$(ps aux|grep "conky -c"|wc -l)
+echo $count
+
+if test $count -eq 1
+then
+    conky -c $HOME/documents/conky/conky_sys
+else
+    killall conky
+fi

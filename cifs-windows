@@ -1,0 +1,12 @@
+#!/bin/bash
+# Windowsのフォルダと共有するスクリプト
+# フォルダの制御、開始と解除
+
+count=$( mount -v | grep windows | wc -l)
+if test $count -gt 0 ; then
+    echo "マウントを解除します。"
+    sudo umount -l $HOME/share/windows
+elif test $count -eq 0 ; then
+    echo "マウントを開始します。"
+    sudo mount -t cifs -o username=soichiro,password=xC2gkIr0,rw,vers=2.1,file_mode=0777,dir_mode=0777,nofail  //192.168.1.99/Users/soichiro.INT/ $HOME/share/windows
+fi
