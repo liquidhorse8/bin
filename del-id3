@@ -11,7 +11,7 @@ count1=$(ls|grep mp3|wc -l)
 for i in `seq 1 $count1`
 do
     name=$(ls|grep mp3|head -$i|tail -1)
-    eyeD3 --remove-all --to-v2.4 --set-encoding=utf16-BE -a "" -A "" -t "$name" $name
+    eyeD3 --remove-all --to-v2.4  -a "" -A "" -t "$name" $name
 
     echo "$name"
 done
