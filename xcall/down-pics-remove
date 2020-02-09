@@ -1,0 +1,19 @@
+#!/bin/bash
+# 画像ダウンロードして閉じる
+
+sleep 0.2
+xte "mouseclick 3"
+sleep 0.3
+xte "key v"
+sleep 0.3
+xte "keydown Alt_L"
+sleep 0.3
+xte "key s"
+xte "keyup Alt_L"
+
+# タブを消す
+sleep 1
+xte "keydown Control_L"
+sleep 0.15
+xte "key w"
+xte "keyup Control_L"

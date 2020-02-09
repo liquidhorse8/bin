@@ -1,0 +1,12 @@
+#!/bin/bash
+#画像のダウンロード
+
+sleep 0.2
+xte "mouseclick 3"
+sleep 0.3
+xte "key v"
+sleep 0.3
+xte "keydown Alt_L"
+sleep 0.3
+xte "key s"
+xte "keyup Alt_L"

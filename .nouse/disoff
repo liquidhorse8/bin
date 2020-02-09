@@ -1,0 +1,34 @@
+#!/bin/bash
+# ノートPCのディスプレイを切る+USBマウス停止
+# ノートPC用
+
+# マウス停止設定
+#xinput --set-prop "ELECOM ELECOM IR Mouse" "Device Enabled" 0
+#xinput --set-prop "Logitech M570" "Device Enabled" 0
+for i in $(xinput list | grep "Logitech USB Receiver" | perl -n -e'/id=(\d+)/ && print "$1\n"')
+do  
+    xinput --set-prop $i "Device Enabled" 0;
+done
+
+mate-screensaver-command -a
+sleep 0.05
+xset dpms force off
+while :
+do
+    tmp=$(xset q | tail -n1)
+    #もしモニタがオンなら、ループを中断する
+    if test "$tmp" = "  Monitor is On"
+    then
+        echo "ループ出"
+        break
+    fi
+    sleep 5
+done
+
+# マウス起動設定
+xinput --set-prop "ELECOM ELECOM IR Mouse" "Device Enabled" 1
+xinput --set-prop "Logitech M570" "Device Enabled" 1
+for i in $(xinput list | grep "Logitech USB Receiver" | perl -n -e'/id=(\d+)/ && print "$1\n"')
+do
+    xinput --set-prop $i "Device Enabled" 1
+done
