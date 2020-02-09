@@ -1,6 +1,5 @@
 #!/bin/bash
 # mp3のID3タグを全部消す。文字化けするから
-# 変更
 
 #IFS環境変数をバックアップ
 IFS_BACKUP=$IFS
