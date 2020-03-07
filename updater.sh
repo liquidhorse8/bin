@@ -21,7 +21,7 @@ out
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 # aptパッケージ
-sudo apt install  chromium-browser chromium-browser-l10n git emacs vlc ffmpeg   nkf samba unar youtube-dl gthumb xautomation conky conky-all tumbler ffmpegthumbnailer vlc-l10n vlc-plugin-samba cifs-utils curl gparted tumbler-plugins-extra  eyed3 gimp terminator
+sudo apt install  chromium-browser chromium-browser-l10n git emacs vlc ffmpeg   nkf samba unar youtube-dl gthumb xautomation conky conky-all tumbler ffmpegthumbnailer ffmpegthumbs vlc-l10n vlc-plugin-samba cifs-utils curl gparted tumbler-plugins-extra  eyed3 gimp terminator
 # python
 sudo apt install python3-pip python-pip python-gtk2
 # php
