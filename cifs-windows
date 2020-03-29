@@ -8,5 +8,5 @@ if test $count -gt 0 ; then
     sudo umount -l $HOME/share/windows
 elif test $count -eq 0 ; then
     echo "マウントを開始します。"
-    sudo mount -t cifs -o username=soichiro,password=xC2gkIr0,rw,vers=2.1,file_mode=0777,dir_mode=0777,nofail  //192.168.1.99/Users/soichiro.INT/ $HOME/share/windows
+    sudo mount -t cifs -o username=soichiro,password=xC2gkIr0,rw,vers=2.1,file_mode=0777,dir_mode=0777,nofail  //192.168.1.16/Users/soichiro.INT/ $HOME/share/windows
 fi
