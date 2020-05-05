@@ -19,10 +19,11 @@ out
 
 # aptリポジトリ
 sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository -y ppa:ppsspp/stable
 sudo add-apt-repository ppa:xubuntu-dev/staging    # thunarバージョンアップ用
 sudo apt update
 # aptパッケージ
-sudo apt install  chromium-browser chromium-browser-l10n git emacs vlc ffmpeg   nkf samba unar youtube-dl gthumb xautomation conky conky-all tumbler ffmpegthumbnailer ffmpegthumbs vlc-l10n vlc-plugin-samba cifs-utils curl gparted tumbler-plugins-extra  eyed3 gimp terminator kid3
+sudo apt install  chromium-browser chromium-browser-l10n git emacs vlc ffmpeg   nkf samba unar youtube-dl gthumb xautomation conky conky-all tumbler ffmpegthumbnailer ffmpegthumbs vlc-l10n vlc-plugin-samba cifs-utils curl gparted tumbler-plugins-extra  eyed3 gimp terminator kid3 ppsspp
 # python
 sudo apt install python3-pip python-pip python-gtk2
 # php
